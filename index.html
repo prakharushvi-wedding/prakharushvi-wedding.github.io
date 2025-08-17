@@ -4,25 +4,187 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rushvi & Prakhar Wedding</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Playfair+Display:700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Georgia', serif; margin: 0; padding: 0; color: #333; }
-    header { background: #f4efe9; text-align: center; padding: 3rem 1rem; }
-    header h1 { font-size: 2.5rem; margin: 0; color: #a0522d; }
-    header h2 { margin: 0.5rem 0; font-weight: normal; }
-    nav { background: #a0522d; padding: 0.5rem; position: sticky; top: 0; }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
-    nav li { margin: 0 1rem; }
-    nav a { color: #fff; text-decoration: none; font-weight: bold; }
-    section { padding: 3rem 1rem; max-width: 900px; margin: auto; }
-    section h2 { color: #a0522d; margin-bottom: 1rem; }
-    .events { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .event { background: #f9f6f2; padding: 1rem; border-radius: 8px; }
-    footer { text-align: center; padding: 2rem; background: #f4efe9; margin-top: 2rem; }
-    .rsvp-btn { display: inline-block; padding: 0.8rem 1.2rem; background: #a0522d; color: white; border-radius: 5px; text-decoration: none; margin-top: 1rem; }
-    .rsvp-btn:hover { background: #7b3e20; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #444;
+      background: #f8f6f3;
+    }
+    header {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 1rem 2rem 1rem;
+      border-bottom: 1px solid #eaeaea;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 0;
+      color: #bfa77a;
+      letter-spacing: 2px;
+    }
+    header h2 {
+      margin: 0.5rem 0 1rem 0;
+      font-weight: normal;
+      color: #888;
+      font-size: 1.3rem;
+    }
+    header p {
+      color: #888;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #bfa77a;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px #eaeaea;
+      transition: background 0.2s;
+      margin-top: 1rem;
+    }
+    .rsvp-btn:hover {
+      background: #a08c5b;
+    }
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #eaeaea;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #bfa77a;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      color: #444;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #bfa77a;
+    }
+    section {
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #eaeaea;
+      margin-top: 2rem;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #bfa77a;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .events {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .event {
+      background: #f8f6f3;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 1px 6px #eaeaea;
+      text-align: center;
+    }
+    .event h3 {
+      color: #bfa77a;
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+    }
+    .families {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .family {
+      background: #f8f6f3;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 1px 6px #eaeaea;
+    }
+    .family h3 {
+      color: #bfa77a;
+      margin-top: 0;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      color: #bfa77a;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-top: 1px solid #eaeaea;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .events, .families { grid-template-columns: 1fr; }
+      nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+      nav ul { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      section { padding: 2rem 0.5rem; }
+      header { padding: 2rem 0.5rem 1rem 0.5rem; }
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      section h2 { font-size: 1.3rem; }
+      .event h3, .family h3 { font-size: 1rem; }
+      .event, .family { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="nav-logo">Rushvi & Prakhar</div>
+    <ul>
+      <li><a href="#getting-there">Getting There</a></li>
+      <li><a href="#wedding">The Wedding</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
   <header>
     <h1>Rushvi & Prakhar</h1>
     <h2>are getting married!</h2>
@@ -30,37 +192,55 @@
     <a class="rsvp-btn" href="https://forms.gle/example" target="_blank">RSVP Here</a>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#getting-there">Getting There</a></li>
-      <li><a href="#wedding">The Wedding</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
-
   <section id="getting-there">
     <h2>Getting There</h2>
-    <p>Our wedding will be held in Rajasthan, India. Nearest airport is Jaipur International. We’ll share more travel and hotel details closer to the date.</p>
+    <p>
+      Our wedding will be held in Rajasthan, India.<br>
+      <strong>By Flight:</strong> Nearest airport is Jaipur International (JAI). Taxis and shuttles are available from the airport to the venue.<br>
+      <strong>By Train:</strong> Jaipur Railway Station is well connected to major cities. Local transport is available from the station.<br>
+      We’ll share more travel and hotel details closer to the date.
+    </p>
   </section>
 
   <section id="wedding">
     <h2>The Wedding Events</h2>
     <div class="events">
       <div class="event">
-        <h3>Mehendi</h3>
-        <p>Dec 10, 11:00 AM<br>Venue: Palace Gardens</p>
+        <h3>Mayra</h3>
+        <p>Dec 10, 11:00 AM<br>Venue: Palace Gardens<br>
+        Traditional family blessing ceremony with music and rituals.</p>
       </div>
       <div class="event">
-        <h3>Sangeet</h3>
-        <p>Dec 10, 7:00 PM<br>Venue: Royal Courtyard</p>
+        <h3>Game Night</h3>
+        <p>Dec 10, 7:00 PM<br>Venue: Royal Courtyard<br>
+        Fun games, laughter, and bonding for all guests!</p>
       </div>
       <div class="event">
-        <h3>Wedding Ceremony</h3>
-        <p>Dec 11, 4:00 PM<br>Venue: Grand Haveli</p>
+        <h3>Hindu Wedding Ceremony</h3>
+        <p>Dec 11, 4:00 PM<br>Venue: Grand Haveli<br>
+        Join us for the sacred wedding rituals and celebrations.</p>
       </div>
-      <div class="event">
-        <h3>Reception</h3>
-        <p>Dec 11, 8:00 PM<br>Venue: Banquet Hall</p>
+    </div>
+  </section>
+
+  <section id="about-us">
+    <h2>About Us</h2>
+    <div class="families">
+      <div class="family">
+        <h3>The Bride's Family</h3>
+        <p>
+          Rushvi is the beloved daughter of Mr. and Mrs. Sharma.<br>
+          The Sharma family hails from Jaipur and is known for their warmth and hospitality.<br>
+          They look forward to welcoming you to the celebrations!
+        </p>
+      </div>
+      <div class="family">
+        <h3>The Groom's Family</h3>
+        <p>
+          Prakhar is the cherished son of Mr. and Mrs. Gupta.<br>
+          The Gupta family is based in Udaipur and is excited to celebrate this joyous occasion.<br>
+          They can't wait to meet you all!
+        </p>
       </div>
     </div>
   </section>
