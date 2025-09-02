@@ -13,10 +13,12 @@
       color: #444;
       background: #f8f6f3;
     }
+
+    /* ---------- HEADER ---------- */
     header {
       background: #fff;
       text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
+      padding: 4rem 1rem 2rem;
       border-bottom: 1px solid #eaeaea;
     }
     header h1 {
@@ -27,7 +29,7 @@
       letter-spacing: 2px;
     }
     header h2 {
-      margin: 0.5rem 0 1rem 0;
+      margin: 0.5rem 0 1rem;
       font-weight: normal;
       color: #888;
       font-size: 1.3rem;
@@ -50,9 +52,9 @@
       transition: background 0.2s;
       margin-top: 1rem;
     }
-    .rsvp-btn:hover {
-      background: #a08c5b;
-    }
+    .rsvp-btn:hover { background: #a08c5b; }
+
+    /* ---------- NAV ---------- */
     nav {
       background: #fff;
       border-bottom: 1px solid #eaeaea;
@@ -78,9 +80,6 @@
       display: flex;
       gap: 2rem;
     }
-    nav li {
-      margin: 0;
-    }
     nav a {
       color: #444;
       text-decoration: none;
@@ -88,17 +87,16 @@
       font-size: 1rem;
       transition: color 0.2s;
     }
-    nav a:hover {
-      color: #bfa77a;
-    }
+    nav a:hover { color: #bfa77a; }
+
+    /* ---------- SECTIONS ---------- */
     section {
       padding: 4rem 1rem;
       max-width: 900px;
-      margin: auto;
+      margin: 2rem auto;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 16px #eaeaea;
-      margin-top: 2rem;
     }
     section h2 {
       font-family: 'Playfair Display', serif;
@@ -107,14 +105,17 @@
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 1px;
+      text-align: center;
     }
-    .events {
+
+    /* ---------- BOX GRIDS ---------- */
+    .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-    .event {
+    .card {
       background: #f8f6f3;
       padding: 1.5rem;
       border-radius: 10px;
@@ -122,13 +123,27 @@
       box-shadow: 0 1px 6px #eaeaea;
       text-align: center;
     }
-    .event h3 {
+    .card h3 {
       color: #bfa77a;
-      margin-top: 0;
-      font-size: 1.2rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: bold;
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
     }
+    .card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ---------- EVENTS ---------- */
+    .events .event h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+    .events .event p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* ---------- FAMILIES ---------- */
     .families {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -146,9 +161,15 @@
       color: #bfa77a;
       margin-top: 0;
       font-size: 1.1rem;
-      font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
     }
+    .family h4 {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
       text-align: center;
       padding: 2rem;
@@ -159,22 +180,25 @@
       border-top: 1px solid #eaeaea;
       margin-top: 2rem;
     }
+
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
-      .events, .families { grid-template-columns: 1fr; }
+      .families { grid-template-columns: 1fr; }
       nav { flex-direction: column; gap: 1rem; padding: 1rem; }
       nav ul { flex-direction: column; gap: 1rem; align-items: flex-start; }
       section { padding: 2rem 0.5rem; }
-      header { padding: 2rem 0.5rem 1rem 0.5rem; }
+      header { padding: 2rem 0.5rem 1rem; }
     }
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       section h2 { font-size: 1.3rem; }
-      .event h3, .family h3 { font-size: 1rem; }
-      .event, .family { padding: 1rem; }
+      .card h3 { font-size: 1.1rem; }
+      .card { padding: 1rem; }
     }
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <nav>
     <div class="nav-logo">Rushvi & Prakhar</div>
     <ul>
@@ -185,73 +209,142 @@
     </ul>
   </nav>
 
+  <!-- HEADER -->
   <header>
     <h1>Rushvi & Prakhar</h1>
     <h2>are getting married!</h2>
-    <p><strong>Rajasthan, India</strong><br>December 10-11, 2025</p>
+    <p><strong> <a href="https://lakeviewhotelandresort.com/" style="text-decoration:none; color:inherit;">Lake View Hotel and Resort, Jodhpur</a></strong><br>December 15-16, 2025<br>
+      <!--<a href="https://lakeviewhotelandresort.com/" target="_blank" style="text-decoration:none; color:inherit;"> -->
+      </a>
+    </p>
     <a class="rsvp-btn" href="https://forms.gle/example" target="_blank">RSVP Here</a>
   </header>
 
+  <!-- GETTING THERE -->
   <section id="getting-there">
     <h2>Getting There</h2>
-    <p>
-      Our wedding will be held in Rajasthan, India.<br>
-      <strong>By Flight:</strong> Nearest airport is Jaipur International (JAI). Taxis and shuttles are available from the airport to the venue.<br>
-      <strong>By Train:</strong> Jaipur Railway Station is well connected to major cities. Local transport is available from the station.<br>
-      We’ll share more travel and hotel details closer to the date.
+    <div class="cards">
+      <!--<a href="https://maps.app.goo.gl/HUsrWReZYtQmH5aEA" target="_blank" style="text-decoration:none; color:inherit;"> -->
+        <div class="card">
+          <h3>✈️ Flight</h3>
+          <p><a href="https://maps.app.goo.gl/HUsrWReZYtQmH5aEA" target="_blank" style="text-decoration:none; color:inherit;"> Jodhpur Airport (JDH)</a></p>
+          <br>
+          <h3>🚌 Bus </h3>
+          <p> <a href="https://maps.app.goo.gl/oUUwfb2ijHHJCHBM6" target="_blank" style="text-decoration:none; color:inherit;" >Jodhpur Bus Station </a> 
+          </p>
+        </div>
+      <!--</a> -->
+      <a href="https://maps.app.goo.gl/4gEjcoUqf2ysvU4A9" target="_blank" style="text-decoration:none; color:inherit;">
+        <div class="card">
+          <h3>🚂 Train</h3>
+          <p>Jodhpur Railway Station <br><br>
+             Recommended trains from Mumbai<br> 
+             14708 Ranakpur Express<br>
+             12480 Suryanagri Express
+          </p>
+        </div>
+      </a>
+      <!--<a href="https://maps.app.goo.gl/oUUwfb2ijHHJCHBM6" target="_blank" style="text-decoration:none; color:inherit;">
+        <div class="card">
+          <h3>🚌 Bus</h3>
+          <p>Jodhpur Bus Station</p>
+        </div>
+      </a>-->
+    </div>
+    <p style="margin-top:2rem; text-align:center;">
+      🚐 Shuttle services will be available from the airport, railway, and bus stations to the wedding venue.
     </p>
+
+
   </section>
 
+  <!-- WEDDING EVENTS -->
   <section id="wedding">
     <h2>The Wedding Events</h2>
-    <div class="events">
-      <div class="event">
-        <h3>Mayra</h3>
-        <p>Dec 10, 11:00 AM<br>Venue: Palace Gardens<br>
-        Traditional family blessing ceremony with music and rituals.</p>
+    <div class="cards events">
+      <div class="card event">
+        <h3>🌸 Battisi/Mayra</h3>
+        <p><strong>Date:</strong> Dec 15, 14:00 - 16:00<br>
+        <strong>Venue:</strong> Hotel Hall<br><br>
+        A traditional family blessing ceremony filled with music, rituals, and love.</p>
       </div>
-      <div class="event">
-        <h3>Game Night</h3>
-        <p>Dec 10, 7:00 PM<br>Venue: Royal Courtyard<br>
-        Fun games, laughter, and bonding for all guests!</p>
+      <div class="card event">
+        <h3>🎲 Game Night</h3>
+        <p><strong>Date:</strong> Dec 15, 19:00 - 22:00<br>
+        <strong>Venue:</strong> Lakeside Lawn<br><br>
+        An evening of fun, laughter, and friendly games to bring everyone together!</p>
       </div>
-      <div class="event">
-        <h3>Hindu Wedding Ceremony</h3>
-        <p>Dec 11, 4:00 PM<br>Venue: Grand Haveli<br>
-        Join us for the sacred wedding rituals and celebrations.</p>
+      <div class="card event">
+        <h3> 🐎 Baraat</h3>
+        <p><strong>Date:</strong> Dec 16, 11:00 - 12:00 <br>
+        <strong>Venue:</strong> Hotel Entrance <br><br>
+        Dance to some dhol on the street as we block a lot of traffic!</p>
+      </div>
+      
+      <div class="card event">
+        <h3>💍 Hindu Wedding Ceremony</h3>
+        <p><strong>Date:</strong> Dec 16, 12:00 - 14:00 <br>
+        <strong>Venue:</strong> Lakeside Lawn<br><br>
+        Join us for the sacred rituals followed by joyous celebrations and blessings.</p>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT US -->
   <section id="about-us">
     <h2>About Us</h2>
     <div class="families">
       <div class="family">
-        <h3>The Bride's Family</h3>
+        <h3>The Bride: Rushvi</h3>
         <p>
-          Rushvi is the beloved daughter of Mr. and Mrs. Sharma.<br>
-          The Sharma family hails from Jaipur and is known for their warmth and hospitality.<br>
-          They look forward to welcoming you to the celebrations!
+          Daughter of Mr. Arvind and Mrs. Maina Jain.<br>
+          <h4>Aashirvad</h4>
+          <p>
+          Paternal Grandparents<br>
+          Maternal Grandparents
+          </p>
+          <h4>Sweet Request</h4>
+          <p>
+          Anish-Moxa<br>
+          Rakesh-Sapna<br>
+          Kashish-Simran<br>
+          Mehul
+
+          </p>
         </p>
       </div>
       <div class="family">
-        <h3>The Groom's Family</h3>
+        <h3>The Groom: Prakhar</h3>
         <p>
-          Prakhar is the cherished son of Mr. and Mrs. Gupta.<br>
-          The Gupta family is based in Udaipur and is excited to celebrate this joyous occasion.<br>
-          They can't wait to meet you all!
+          Son of Mr. Ravindra Mehta and Mrs. Dr. Nidhi Mehta.<br>
+          
+        </p>
+        <h4>Aashirvad</h4>
+        <p>
+          Late Shri. Ram Nath Sa Mehta and Smt. Uchhab Sa Mehta (Paternal Grandparents)<br>
+          Late Shri. Dr. Tej Singh Sa Mehta and Smt. Basant Sa Mehta (Maternal Grandparents)
+        </p>
+        <h4>Sweet Request</h4>
+        <p>
+          Chandu and Sanjay Mama<br>
+          Rashmi and Sudha Bua <br>
+          Paarthu
         </p>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>If you have any questions, feel free to reach out:</p>
-    <p>Email: <a href="mailto:example@email.com">example@email.com</a><br>
-    Phone: +91-9876543210</p>
+    <p>Ravindra Mehta: +91-9820136510</p>
+    <p>Paarth Mehta: +91-xxxx</p>
+    <p>Arvind Jain: +91-xxxx</p>
+    <p>Anish Jain: +91-xxxx</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>Rushvi ❤️ Prakhar | Rajasthan 2025</p>
   </footer>
