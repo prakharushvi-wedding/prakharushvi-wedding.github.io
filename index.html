@@ -19,20 +19,28 @@ body {
 
 /* Envelope */
 .envelope {
-    width: 280px;
-    height: 180px;
+    width: 360px;
+    height: 230px;
     background: #ffccd5;
     position: relative;
     cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.6s ease;
+    z-index: 2;
+}
+
+.envelope.opened {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0.4;
+    z-index: 0;
 }
 
 .name {
-    font-size: 22px;
+    font-size: 28px;
     color: #b3003b;
     font-weight: bold;
 }
@@ -40,21 +48,21 @@ body {
 /* Card */
 .card {
     position: absolute;
-    top: -10px;
-    width: 260px;
-    height: 200px;
+    width: 320px;
+    height: 240px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    transform: translateY(100px);
+    border-radius: 12px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    transform: translateY(120px);
     opacity: 0;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    transition: all 0.8s ease;
+    transition: all 0.9s ease;
+    z-index: 3;
 }
 
 .show-card {
-    transform: translateY(-150px);
+    transform: translateY(-170px);
     opacity: 1;
 }
 
@@ -62,35 +70,35 @@ body {
 button {
     border: none;
     cursor: pointer;
-    margin: 10px;
+    margin: 12px;
     border-radius: 20px;
 }
 
 .yes-btn {
-    padding: 12px 30px;
-    font-size: 20px;
+    padding: 14px 36px;
+    font-size: 22px;
     background: #ff4d6d;
     color: white;
 }
 
 .no-btn {
-    padding: 4px 10px;
+    padding: 4px 12px;
     font-size: 10px;
-    background: #ccc;
-    color: #333;
+    background: #ddd;
+    color: #444;
 }
 
 .result {
     font-size: 26px;
-    margin-top: 20px;
+    margin-top: 18px;
     color: #b3003b;
 }
 
-/* Confetti hearts */
+/* Hearts */
 .heart {
     position: absolute;
     color: #ff4d6d;
-    font-size: 20px;
+    font-size: 22px;
     animation: fall 3s linear forwards;
 }
 
@@ -105,27 +113,27 @@ button {
 
 <body>
 
-<div class="envelope" onclick="openCard()">
-    <div class="name">For My Love ❤️</div>
-
-    <div class="card" id="card">
-        <h2>Will you be my Valentine? 💌</h2>
-        <button class="yes-btn" onclick="sayYes(event)">YES 💖</button>
-        <button class="no-btn" onclick="sayNo(event)">no</button>
-        <div class="result" id="result"></div>
-    </div>
+<div class="envelope" id="envelope" onclick="openCard()">
+    <div class="name">Prakhar 💌</div>
 </div>
 
-<!-- 🎵 Soft background music -->
-<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<div class="card" id="card">
+    <h2>Will you be my Valentine? 💖</h2>
+    <button class="yes-btn" onclick="sayYes(event)">YES 💘</button>
+    <button class="no-btn" onclick="sayNo(event)">no</button>
+    <div class="result" id="result"></div>
+</div>
+
+<!-- 🎵 Softer Piano Music -->
+<audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f1b0a6a5.mp3?filename=romantic-piano-ambient-110624.mp3"></audio>
 
 <script>
 let musicStarted = false;
 
 function openCard() {
     document.getElementById('card').classList.add('show-card');
+    document.getElementById('envelope').classList.add('opened');
 
-    // Start music on first interaction (browser-friendly)
     if (!musicStarted) {
         document.getElementById('music').play();
         musicStarted = true;
@@ -144,7 +152,7 @@ function sayNo(e) {
 }
 
 function launchHearts() {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 35; i++) {
         let heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "💖";
