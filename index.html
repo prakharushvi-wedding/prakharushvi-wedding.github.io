@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Valentine 💘</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe6eb, #fff5f7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Envelope */
+.envelope {
+    width: 280px;
+    height: 180px;
+    background: #ffccd5;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    font-size: 22px;
+    color: #b3003b;
+    font-weight: bold;
+}
+
+/* Card */
+.card {
+    position: absolute;
+    top: -10px;
+    width: 260px;
+    height: 200px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.8s ease;
+}
+
+.show-card {
+    transform: translateY(-150px);
+    opacity: 1;
+}
+
+/* Buttons */
+button {
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.yes-btn {
+    padding: 12px 30px;
+    font-size: 20px;
+    background: #ff4d6d;
+    color: white;
+}
+
+.no-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+    background: #ccc;
+    color: #333;
+}
+
+.result {
+    font-size: 26px;
+    margin-top: 20px;
+    color: #b3003b;
+}
+
+/* Confetti hearts */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openCard()">
+    <div class="name">For My Love ❤️</div>
+
+    <div class="card" id="card">
+        <h2>Will you be my Valentine? 💌</h2>
+        <button class="yes-btn" onclick="sayYes(event)">YES 💖</button>
+        <button class="no-btn" onclick="sayNo(event)">no</button>
+        <div class="result" id="result"></div>
+    </div>
+</div>
+
+<!-- 🎵 Soft background music -->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+let musicStarted = false;
+
+function openCard() {
+    document.getElementById('card').classList.add('show-card');
+
+    // Start music on first interaction (browser-friendly)
+    if (!musicStarted) {
+        document.getElementById('music').play();
+        musicStarted = true;
+    }
+}
+
+function sayYes(e) {
+    e.stopPropagation();
+    document.getElementById('result').innerHTML = "💐🌹 You just made me the happiest! 🌹💐";
+    launchHearts();
+}
+
+function sayNo(e) {
+    e.stopPropagation();
+    document.getElementById('result').innerHTML = "Are you sure?? Try again… click YES!!! 😏💘";
+}
+
+function launchHearts() {
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+</script>
+
+</body>
+</html>
