@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For My Valentine 💘</title>
+<title>Prakhar 💘</title>
 
 <style>
 body {
@@ -19,28 +19,43 @@ body {
 
 /* Envelope */
 .envelope {
-    width: 360px;
+    width: 340px;
     height: 230px;
-    background: #ffccd5;
     position: relative;
     cursor: pointer;
+    z-index: 2;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background: #ffccd5;
     border-radius: 10px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.6s ease;
-    z-index: 2;
 }
 
-.envelope.opened {
-    transform: translateY(40px) scale(0.95);
-    opacity: 0.4;
-    z-index: 0;
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 115px;
+    background: #ffb3c1;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.envelope.opened .flap {
+    transform: rotateX(180deg);
 }
 
 .name {
-    font-size: 28px;
+    font-size: 26px;
     color: #b3003b;
     font-weight: bold;
 }
@@ -48,14 +63,14 @@ body {
 /* Card */
 .card {
     position: absolute;
-    width: 320px;
-    height: 240px;
+    width: 340px;
+    height: 230px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 20px 45px rgba(0,0,0,0.25);
     transform: translateY(120px);
     opacity: 0;
-    padding: 25px;
+    padding: 22px;
     text-align: center;
     transition: all 0.9s ease;
     z-index: 3;
@@ -75,22 +90,22 @@ button {
 }
 
 .yes-btn {
-    padding: 14px 36px;
-    font-size: 22px;
+    padding: 12px 30px;
+    font-size: 20px;
     background: #ff4d6d;
     color: white;
 }
 
 .no-btn {
-    padding: 4px 12px;
+    padding: 4px 10px;
     font-size: 10px;
     background: #ddd;
     color: #444;
 }
 
 .result {
-    font-size: 26px;
-    margin-top: 18px;
+    font-size: 22px;
+    margin-top: 15px;
     color: #b3003b;
 }
 
@@ -114,18 +129,23 @@ button {
 <body>
 
 <div class="envelope" id="envelope" onclick="openCard()">
-    <div class="name">Prakhar 💌</div>
+    <div class="flap"></div>
+    <div class="envelope-body">
+        <div class="name">Prakhar 💌</div>
+    </div>
 </div>
 
 <div class="card" id="card">
-    <h2>Will you be my Valentine? 💖</h2>
+    <h2 style="font-size:22px;">Will you be my Valentine? 💖</h2>
     <button class="yes-btn" onclick="sayYes(event)">YES 💘</button>
     <button class="no-btn" onclick="sayNo(event)">no</button>
     <div class="result" id="result"></div>
 </div>
 
-<!-- 🎵 Softer Piano Music -->
-<audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f1b0a6a5.mp3?filename=romantic-piano-ambient-110624.mp3"></audio>
+<!-- 🎵 Soft Piano -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/27/audio_0f8c6baf1f.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 let musicStarted = false;
@@ -135,7 +155,9 @@ function openCard() {
     document.getElementById('envelope').classList.add('opened');
 
     if (!musicStarted) {
-        document.getElementById('music').play();
+        const music = document.getElementById('music');
+        music.volume = 0.35;
+        music.play().catch(() => {});
         musicStarted = true;
     }
 }
@@ -148,7 +170,7 @@ function sayYes(e) {
 
 function sayNo(e) {
     e.stopPropagation();
-    document.getElementById('result').innerHTML = "Are you sure?? Try again… click YES!!! 😏💘";
+    document.getElementById('result').innerHTML = "Are you sure?? Try again…click YES!!! 😏💘";
 }
 
 function launchHearts() {
